@@ -27,6 +27,7 @@ export class BoardsService {
 
   getBoardById(id: string): Board {
     const found = this.boards.find((board) => board.id === id);
+
     if (!found) {
       throw new NotFoundException(`Can't find Board with id ${id}`);
     }
@@ -41,6 +42,7 @@ export class BoardsService {
 
   updateBoardStatus(id: string, status: BoardStatus): Board | undefined {
     const board = this.getBoardById(id);
+
     if (board) {
       board.status = status;
     }
