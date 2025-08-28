@@ -8,8 +8,10 @@ import { CreateBoardDto } from './dto/create-board.dto';
 export class BoardsService {
   constructor(private boardRepository: BoardRepository) {}
 
-  async getAllBoards(): Promise<Board[]> {
-    return this.boardRepository.find();
+  async getAllBoards(user: User): Promise<Board[]> {
+    const query = this.boardRepository.createQueryBuilder('board');
+    query.where('board.userId = :userId', { userId: user.id });
+    return query.getMany();
   }
 
   createBoard(CreateBoardDto: CreateBoardDto, user: User): Promise<Board> {
