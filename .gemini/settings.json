@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "mcp-taskmanager": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@kazuph/mcp-taskmanager",
+        "--key",
+        "3cd33bd9-9fd1-45d1-9e16-15c60052b11e"
+      ]
+    }
+  }
+}
